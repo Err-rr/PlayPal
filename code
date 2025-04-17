@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PlayPal</title>
+    <style>
+        :root {
+            --primary: #7c5bf5;
+            --dark: #1a1c25;
+            --light: #f5f5f7;
+            --accent: #5ce1e6;
+            --secondary: #9c73ff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(124, 91, 245, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(92, 225, 230, 0.1) 0%, transparent 20%);
+        }
+        
+        .navbar {
+            background-color: rgba(26, 28, 37, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--light);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-login {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-login:hover {
+            background-color: rgba(124, 91, 245, 0.1);
+        }
+        
+        .btn-signup {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .btn-signup:hover {
+            background-color: #6849e0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 91, 245, 0.4);
+        }
+        .hero {
+            /* height: 100vh; */
+            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* height: 100px; */
+            background: linear-gradient(to top, #0f0f1a, transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            /* max-width: 800px;
+            padding: 0 2rem; */
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            /* margin-bottom: 1rem; */
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .secondary-button {
+            background: transparent;
+            border: 2px solid var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            color: var(--light);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background: rgba(108, 92, 231, 0.1);
+        }
+        /* Hero Section Styles */
+        .hero {
+            height: 30vh;
+            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, #0f0f1a, transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .secondary-button {
+            background: transparent;
+            border: 2px solid var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            color: var(--light);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background: rgba(108, 92, 231, 0.1);
+        }
+        
+        .features {
+            padding: 5rem 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            color: #bbb;
+            line-height: 1.6;
+        }
+        .subtitle {
+            font-size: 22px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: rgba(245, 245, 247, 0.8);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 40px 100px;
+        }
+        
+        .feature-card {
+            background: rgba(26, 28, 37, 0.8);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(124, 91, 245, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(124, 91, 245, 0.6);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary);
+            background: rgba(124, 91, 245, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(245, 245, 247, 0.7);
+        }
+        
+        .gaming-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .particle-1 {
+            background-color: var(--primary);
+            width: 30px;
+            height: 30px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .particle-2 {
+            background-color: var(--accent);
+            width: 15px;
+            height: 15px;
+            top: 20%;
+            left: 80%;
+            animation-delay: 3s;
+        }
+        
+        .particle-3 {
+            background-color: var(--secondary);
+            width: 20px;
+            height: 20px;
+            top: 70%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+        
+        .particle-4 {
+            background-color: var(--primary);
+            width: 25px;
+            height: 25px;
+            top: 80%;
+            left: 85%;
+            animation-delay: 9s;
+        }
+        
+        .particle-5 {
+            background-color: var(--accent);
+            width: 18px;
+            height: 18px;
+            top: 40%;
+            left: 50%;
+            animation-delay: 12s;
+        }
+        
+        .gaming-icon {
+            position: absolute;
+            opacity: 0.2;
+            font-size: 26px;
+            color: var(--light);
+            animation: spin 20s infinite linear;
+        }
+        
+        .icon-1 {
+            top: 15%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+        
+        .icon-2 {
+            top: 75%;
+            left: 25%;
+            animation-delay: 5s;
+        }
+        
+        .icon-3 {
+            top: 30%;
+            left: 75%;
+            animation-delay: 8s;
+        }
+        
+        .icon-4 {
+            top: 65%;
+            left: 80%;
+            animation-delay: 11s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, 50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(0, 100px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-50px, 50px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 80px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: rgba(245, 245, 247, 0.8);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .btn-cta {
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), #9c73ff);
+            color: var(--light);
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #6849e0, #8a60ff);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 91, 245, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(124, 91, 245, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            background-color: rgba(20, 21, 28, 0.8);
+            padding: 60px 100px 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-description {
+            max-width: 300px;
+            color: rgba(245, 245, 247, 0.6);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(124, 91, 245, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: var(--light);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-links-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .footer-link {
+            color: rgba(245, 245, 247, 0.6);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(245, 245, 247, 0.1);
+            display: flex;
+            justify-content: space-between;
+            color: rgba(245, 245, 247, 0.6);
+            font-size: 14px;
+        }
+        
+        .footer-copyright a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .footer-terms a {
+            color: rgba(245, 245, 247, 0.6);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        
+        .footer-terms a:hover {
+            color: var(--primary);
+        }
+        
+        /* Game-specific elements */
+        .game-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--light);
+            font-weight: bold;
+            padding: 25px;
+            transform: rotate(45deg);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .level-indicator {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .level-text {
+            font-size: 16px;
+            color: var(--light);
+            margin-right: 15px;
+        }
+        
+        .level-bar {
+            flex: 1;
+            height: 10px;
+            background-color: rgba(245, 245, 247, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .level-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 75%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 5px;
+        }
+        
+        
+        .game-stat {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .stat-icon {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            color: var(--light);
+        }
+        
+        .stat-label {
+            color: rgba(245, 245, 247, 0.6);
+            margin-left: 5px;
+        }
+        /* Games Section */
+        .games-section {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 10%;
+        }
+
+        .game-card {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 350px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .game-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .game-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 2rem;
+            color: var(--light);
+            z-index: 1;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .players-count {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        .game-action {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .game-action:hover {
+            background: var(--secondary);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 10%;
+            text-align: center;
+            background: #1a1a2e;
+        }
+
+        .testimonials-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .testimonials-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-info h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .user-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: rgba(108, 92, 231, 0.2);
+        }
+        
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 10%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1920/1080');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .cta-description {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-button-large {
+            background: var(--light);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .game-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(124, 91, 245, 0.05) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(124, 91, 245, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-gamepad logo-icon"></i>
+            Play<span>Pal</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="about.html" >About</a>
+            <a href="#">Games</a>
+            <a href="#">Features</a>
+            <a href="#">Community</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="btn btn-login">Login</button>
+            <button class="btn btn-signup">Sign Up</button>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <div class="game-grid"></div>
+        <div class="gaming-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <i class="gaming-icon icon-1 fa-solid fa-trophy"></i>
+            <i class="gaming-icon icon-2 fa-solid fa-gamepad"></i>
+            <i class="gaming-icon icon-3 fa-solid fa-headset"></i>
+            <i class="gaming-icon icon-4 fa-solid fa-chess-knight"></i>
+        </div>
+        
+    </div>
+      
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Perfect <span>Gaming Team</span></h1>
+            <p>Connect with players who match your skill level and play style. Team up, dominate, and make new friends along the way.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">Get Started</a>
+                <a href="#games" class="secondary-button">Explore Games</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose PlayPal?</h2>
+        <p class="section-subtitle">We make finding the perfect gaming teammates simple, fast, and fun.</p>
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3 class="feature-title">Skill Matching</h3>
+                <p class="feature-desc">Our algorithm matches you with players of similar skill level so you can enjoy balanced gameplay.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Find Players Fast</h3>
+                <p class="feature-desc">No more waiting in lobbies. Get matched with teammates and start playing in minutes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">Rank Up Together</h3>
+                <p class="feature-desc">Form lasting teams, practice together, and climb the competitive ladder as a unit.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Games Section -->
+    <section class="games-section" id="games">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Popular Games</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="https://w0.peakpx.com/wallpaper/947/37/HD-wallpaper-bgmi-bgmi-thumbnail.jpg" alt="BGMI">
+                <div class="game-overlay">
+                    <h3 class="game-title">BGMI</h3>
+                    <div class="players-count">
+                        <span>👥</span>
+                        <span>10,483 active players</span>
+                    </div>
+                </div>
+                <button class="game-action">Join</button>
+            </div>
+            <div class="game-card">
+                <img src="https://4kwallpapers.com/images/wallpapers/call-of-duty-mobile-android-games-ios-games-1280x1280-778.jpg" alt="Call of Duty Mobile">
+                <div class="game-overlay">
+                    <h3 class="game-title">Call of Duty Mobile</h3>
+                    <div class="players-count">
+                        <span>👥</span>
+                        <span>8,752 active players</span>
+                    </div>
+                </div>
+                <button class="game-action">Join</button>
+            </div>
+            <div class="game-card">
+                <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202210/ed36948c8f15a2e6e819ad6175d2dcb4.jpg" alt="Free Fire">
+                <div class="game-overlay">
+                    <h3 class="game-title">Free Fire</h3>
+                    <div class="players-count">
+                        <span>👥</span>
+                        <span>12,345 active players</span>
+                    </div>
+                </div>
+                <button class="game-action">Join</button>
+            </div>
+            <div class="game-card">
+                <img src="https://wallpapercat.com/w/full/c/0/5/283375-3840x2160-desktop-4k-clash-of-clans-background.jpg" alt="Clash of Clans">
+                <div class="game-overlay">
+                    <h3 class="game-title">Clash of Clans</h3>
+                    <div class="players-count">
+                        <span>👥</span>
+                        <span>7,629 active players</span>
+                    </div>
+                </div>
+                <button class="game-action">Join</button>
+            </div>
+            <div class="game-card">
+                <img src="https://wallpapers.com/images/high/valorant-1920x1080-v3fe8wvu7ufefvij.webp" alt="Valorant">
+                <div class="game-overlay">
+                    <h3 class="game-title">Valorant</h3>
+                    <div class="players-count">
+                        <span>👥</span>
+                        <span>6,218 active players</span>
+                    </div>
+                </div>
+                <button class="game-action">Join</button>
+            </div>
+            <div class="game-card">
+                <img src="https://images8.alphacoders.com/992/992724.png" alt="Apex Legends">
+                <div class="game-overlay">
+                    <h3 class="game-title">Apex Legends</h3>
+                    <div class="players-count">
+                        <span>👥</span>
+                        <span>5,871 active players</span>
+                    </div>
+                </div>
+                <button class="game-action">Join</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">What Gamers Say</h2>
+        <p class="section-subtitle">Don't just take our word for it – hear from players who found their perfect team.</p>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">I was stuck in Silver rank for months. After finding a solid team through PlayPal, we ranked up to Diamond in just two weeks!</p>
+                <div class="testimonial-user">
+                    <img src="https://img.freepik.com/free-vector/cute-astronaut-playing-vr-game-with-controller-cartoon-vector-icon-illustration-science-technology_138676-13977.jpg?ga=GA1.1.434619777.1744877113&semt=ais_hybrid&w=740" alt="User Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <h4>Alex K.</h4>
+                        <p>BGMI Player</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">As a casual player, I struggled to find people who matched my play style. PlayPal connected me with an awesome squad who are now my regular gaming buddies.</p>
+                <div class="testimonial-user">
+                    <img src="https://img.freepik.com/free-vector/cute-girl-gaming-holding-joystick-cartoon-icon-illustration-people-technology-icon-concept-isolated-flat-cartoon-style_138676-2169.jpg?t=st=1744877145~exp=1744880745~hmac=c1cbf2e37bd71aeecd410f51a63166e05166f6ca22802e798313d93aac111edd&w=1380" alt="User Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <h4>Sarah M.</h4>
+                        <p>Call of Duty Player</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">The skill matching is spot on! No more carrying teammates or getting carried. Every match feels balanced and competitive now.</p>
+                <div class="testimonial-user">
+                    <img src="https://img.freepik.com/premium-photo/high-quality-gaming-character-mascot-vector_1004054-21470.jpg?ga=GA1.1.434619777.1744877113&semt=ais_hybrid&w=740" alt="User Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <h4>Raj P.</h4>
+                        <p>Free Fire Player</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Find Your Dream Team?</h2>
+            <p class="cta-description">Join thousands of players who are already enjoying better matches and making new friends. Sign up takes less than a minute!</p>
+            <a href="#" class="cta-button-large">Create Your Account</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      
+</body>
+</html>
+
+       </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                &copy; 2025 PlayPal. All rights reserved. Made with ❤️ for <a href="#">Gamers</a>
+            </div>
+            <div class="footer-terms">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
