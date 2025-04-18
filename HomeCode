@@ -22,6 +22,36 @@
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(124, 91, 245, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(92, 225, 230, 0.1) 0%, transparent 20%);
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+        }
+        
+        /* Add background overlay to entire body */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            z-index: -1;
+        }
+        
+        /* Game grid applied to entire body */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(124, 91, 245, 0.05) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(124, 91, 245, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
         }
         
         .navbar {
@@ -122,84 +152,22 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(124, 91, 245, 0.4);
         }
+        .your-container {
+            position: relative;
+            overflow: hidden;
+             /* Your other styles */
+        }
+        
+        /* Modified hero section to be more transparent since we have background on body */
         .hero {
-            /* height: 100vh; */
-            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            height: 70vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
             overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            /* height: 100px; */
-            background: linear-gradient(to top, #0f0f1a, transparent);
-            z-index: 1;
-        }
-
-        .hero-content {
-            /* max-width: 800px;
-            padding: 0 2rem; */
-            z-index: 2;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            /* margin-bottom: 1rem; */
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #ddd;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .secondary-button {
             background: transparent;
-            border: 2px solid var(--primary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            color: var(--light);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .secondary-button:hover {
-            background: rgba(108, 92, 231, 0.1);
-        }
-        /* Hero Section Styles */
-        .hero {
-            height: 28vh;
-            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .hero::after {
@@ -209,7 +177,7 @@
             left: 0;
             right: 0;
             height: 100px;
-            background: linear-gradient(to top, #0f0f1a, transparent);
+            background: linear-gradient(to top, var(--dark), transparent);
             z-index: 1;
         }
 
@@ -256,9 +224,26 @@
             background: rgba(108, 92, 231, 0.1);
         }
         
+        .cta-button {
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #6849e0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 91, 245, 0.4);
+        }
+        
         .features {
             padding: 5rem 10%;
             text-align: center;
+            background: transparent;
         }
 
         .section-title {
@@ -321,6 +306,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             padding: 40px 100px;
+            background: transparent;
         }
         
         .feature-card {
@@ -381,6 +367,7 @@
             top: 0;
             left: 0;
             pointer-events: none;
+            z-index: 2;
         }
         
         .particle {
@@ -499,6 +486,7 @@
             padding: 80px 100px;
             position: relative;
             overflow: hidden;
+            background: transparent;
         }
         
         .cta-title {
@@ -730,7 +718,9 @@
         /* Games Section */
         .games-section {
             padding: 5rem 0;
-            background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+            background: transparent;
+            position: relative;
+            z-index: 2;
         }
 
         .games-grid {
@@ -811,7 +801,9 @@
         .testimonials {
             padding: 5rem 10%;
             text-align: center;
-            background: #1a1a2e;
+            background: transparent;
+            position: relative;
+            z-index: 2;
         }
 
         .testimonials-container {
@@ -879,9 +871,11 @@
         .cta-section {
             padding: 5rem 10%;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             position: relative;
             overflow: hidden;
+            background: rgba(124, 91, 245, 0.1);
+            z-index: 2;
+            margin-top: 2rem;
         }
 
         .cta-section::before {
@@ -931,8 +925,10 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .game-grid {
-            position: absolute;
+        
+         /* Game grid - moved to fixed position */
+         .game-grid {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -941,8 +937,10 @@
                              linear-gradient(90deg, rgba(124, 91, 245, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
-            z-index: 1;
+            z-index: -2;
         }
+        
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -955,10 +953,11 @@
         <div class="nav-links">
             <a href="#" class="active">Home</a>
             <a href="about.html" >About</a>
-            <a href="#">Games</a>
-            <a href="#">Features</a>
+            <a href="#games">Games</a>
+            <a href="#features.html">Features</a>
             <a href="#">Community</a>
-            <a href="#">Contact</a>
+            <a href="contact.html" >Contact</a>
+
         </div>
         <div class="auth-buttons">
             <button class="btn btn-login">Login</button>
@@ -966,25 +965,20 @@
         </div>
     </div>
     
-    <div class="hero">
-        <div class="game-grid"></div>
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="gaming-particles">
             <div class="particle particle-1"></div>
             <div class="particle particle-2"></div>
             <div class="particle particle-3"></div>
             <div class="particle particle-4"></div>
             <div class="particle particle-5"></div>
-            <i class="gaming-icon icon-1 fa-solid fa-trophy"></i>
-            <i class="gaming-icon icon-2 fa-solid fa-gamepad"></i>
-            <i class="gaming-icon icon-3 fa-solid fa-headset"></i>
-            <i class="gaming-icon icon-4 fa-solid fa-chess-knight"></i>
+            <div class="gaming-icon icon-1">★</div>
+            <div class="gaming-icon icon-2">◆</div>
+            <div class="gaming-icon icon-3">✦</div>
+            <div class="gaming-icon icon-4">✧</div>
         </div>
         
-    </div>
-      
-
-    <!-- Hero Section -->
-    <section class="hero">
         <div class="hero-content">
             <h1>Find Your Perfect <span>Gaming Team</span></h1>
             <p>Connect with players who match your skill level and play style. Team up, dominate, and make new friends along the way.</p>
@@ -995,169 +989,158 @@
         </div>
     </section>
 
-    <!-- Features Section
-    <section class="features" id="features">
-        <h2 class="section-title">Why Choose PlayPal?</h2>
-        <p class="section-subtitle">We make finding the perfect gaming teammates simple, fast, and fun.</p>
-        <div class="features-container">
-            <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <h3 class="feature-title">Skill Matching</h3>
-                <p class="feature-desc">Our algorithm matches you with players of similar skill level so you can enjoy balanced gameplay.</p>
+   
+   <!-- Games Section -->
+   <section class="games-section" id="games">
+    <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Popular Games</h2>
+    <div class="games-grid">
+        <div class="game-card">
+            <img src="https://w0.peakpx.com/wallpaper/947/37/HD-wallpaper-bgmi-bgmi-thumbnail.jpg" alt="BGMI">
+            <div class="game-overlay">
+                <h3 class="game-title">BGMI</h3>
+                <div class="players-count">
+                    <span>👥</span>
+                    <span>10,483 active players</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3 class="feature-title">Find Players Fast</h3>
-                <p class="feature-desc">No more waiting in lobbies. Get matched with teammates and start playing in minutes.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3 class="feature-title">Rank Up Together</h3>
-                <p class="feature-desc">Form lasting teams, practice together, and climb the competitive ladder as a unit.</p>
-            </div>
+            <a href="bgmi.html"><button class="game-action">Join</button></a>
         </div>
-    </section> -->
 
-    <!-- Games Section -->
-    <section class="games-section" id="games">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Popular Games</h2>
-        <div class="games-grid">
-            <div class="game-card">
-                <img src="https://w0.peakpx.com/wallpaper/947/37/HD-wallpaper-bgmi-bgmi-thumbnail.jpg" alt="BGMI">
-                <div class="game-overlay">
-                    <h3 class="game-title">BGMI</h3>
-                    <div class="players-count">
-                        <span>👥</span>
-                        <span>10,483 active players</span>
-                    </div>
+        <div class="game-card">
+            <img src="https://4kwallpapers.com/images/wallpapers/call-of-duty-mobile-android-games-ios-games-1280x1280-778.jpg" alt="Call of Duty Mobile">
+            <div class="game-overlay">
+                <h3 class="game-title">Call of Duty Mobile</h3>
+                <div class="players-count">
+                    <span>👥</span>
+                    <span>8,752 active players</span>
                 </div>
-                <button class="game-action">Join</button>
             </div>
-            <div class="game-card">
-                <img src="https://4kwallpapers.com/images/wallpapers/call-of-duty-mobile-android-games-ios-games-1280x1280-778.jpg" alt="Call of Duty Mobile">
-                <div class="game-overlay">
-                    <h3 class="game-title">Call of Duty Mobile</h3>
-                    <div class="players-count">
-                        <span>👥</span>
-                        <span>8,752 active players</span>
-                    </div>
-                </div>
-                <button class="game-action">Join</button>
-            </div>
-            <div class="game-card">
-                <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202210/ed36948c8f15a2e6e819ad6175d2dcb4.jpg" alt="Free Fire">
-                <div class="game-overlay">
-                    <h3 class="game-title">Free Fire</h3>
-                    <div class="players-count">
-                        <span>👥</span>
-                        <span>12,345 active players</span>
-                    </div>
-                </div>
-                <button class="game-action">Join</button>
-            </div>
-            <div class="game-card">
-                <img src="https://wallpapercat.com/w/full/c/0/5/283375-3840x2160-desktop-4k-clash-of-clans-background.jpg" alt="Clash of Clans">
-                <div class="game-overlay">
-                    <h3 class="game-title">Clash of Clans</h3>
-                    <div class="players-count">
-                        <span>👥</span>
-                        <span>7,629 active players</span>
-                    </div>
-                </div>
-                <button class="game-action">Join</button>
-            </div>
-            <div class="game-card">
-                <img src="https://wallpapers.com/images/high/valorant-1920x1080-v3fe8wvu7ufefvij.webp" alt="Valorant">
-                <div class="game-overlay">
-                    <h3 class="game-title">Valorant</h3>
-                    <div class="players-count">
-                        <span>👥</span>
-                        <span>6,218 active players</span>
-                    </div>
-                </div>
-                <button class="game-action">Join</button>
-            </div>
-            <div class="game-card">
-                <img src="https://images8.alphacoders.com/992/992724.png" alt="Apex Legends">
-                <div class="game-overlay">
-                    <h3 class="game-title">Apex Legends</h3>
-                    <div class="players-count">
-                        <span>👥</span>
-                        <span>5,871 active players</span>
-                    </div>
-                </div>
-                <button class="game-action">Join</button>
-            </div>
+            <button class="game-action">Join</button>
+            <a href="CallOfDuty_swipe.html"><button class="game-action">Join</button></a>
         </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2 class="section-title">What Gamers Say</h2>
-        <p class="section-subtitle">Don't just take our word for it – hear from players who found their perfect team.</p>
-        <div class="testimonials-container">
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-text">I was stuck in Silver rank for months. After finding a solid team through PlayPal, we ranked up to Diamond in just two weeks!</p>
-                <div class="testimonial-user">
-                    <img src="https://img.freepik.com/free-vector/cute-astronaut-playing-vr-game-with-controller-cartoon-vector-icon-illustration-science-technology_138676-13977.jpg?ga=GA1.1.434619777.1744877113&semt=ais_hybrid&w=740" alt="User Avatar" class="user-avatar">
-                    <div class="user-info">
-                        <h4>Alex K.</h4>
-                        <p>BGMI Player</p>
-                    </div>
+        <div class="game-card">
+            <img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202210/ed36948c8f15a2e6e819ad6175d2dcb4.jpg" alt="Free Fire">
+            <div class="game-overlay">
+                <h3 class="game-title">Free Fire</h3>
+                <div class="players-count">
+                    <span>👥</span>
+                    <span>12,345 active players</span>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-text">As a casual player, I struggled to find people who matched my play style. PlayPal connected me with an awesome squad who are now my regular gaming buddies.</p>
-                <div class="testimonial-user">
-                    <img src="https://img.freepik.com/free-vector/cute-girl-gaming-holding-joystick-cartoon-icon-illustration-people-technology-icon-concept-isolated-flat-cartoon-style_138676-2169.jpg?t=st=1744877145~exp=1744880745~hmac=c1cbf2e37bd71aeecd410f51a63166e05166f6ca22802e798313d93aac111edd&w=1380" alt="User Avatar" class="user-avatar">
-                    <div class="user-info">
-                        <h4>Sarah M.</h4>
-                        <p>Call of Duty Player</p>
-                    </div>
+            <button class="game-action">Join</button>
+        </div>
+
+
+        <div class="game-card">
+            <img src="https://wallpapercat.com/w/full/c/0/5/283375-3840x2160-desktop-4k-clash-of-clans-background.jpg" alt="Clash of Clans">
+            <div class="game-overlay">
+                <h3 class="game-title">Clash of Clans</h3>
+                <div class="players-count">
+                    <span>👥</span>
+                    <span>7,629 active players</span>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-text">The skill matching is spot on! No more carrying teammates or getting carried. Every match feels balanced and competitive now.</p>
-                <div class="testimonial-user">
-                    <img src="https://img.freepik.com/premium-photo/high-quality-gaming-character-mascot-vector_1004054-21470.jpg?ga=GA1.1.434619777.1744877113&semt=ais_hybrid&w=740" alt="User Avatar" class="user-avatar">
-                    <div class="user-info">
-                        <h4>Raj P.</h4>
-                        <p>Free Fire Player</p>
-                    </div>
+            <button class="game-action">Join</button>
+        </div>
+
+
+        <div class="game-card">
+            <img src="https://wallpapers.com/images/high/valorant-1920x1080-v3fe8wvu7ufefvij.webp" alt="Valorant">
+            <div class="game-overlay">
+                <h3 class="game-title">Valorant</h3>
+                <div class="players-count">
+                    <span>👥</span>
+                    <span>6,218 active players</span>
+                </div>
+            </div>
+            <button class="game-action">Join</button>
+        </div>
+
+
+        <div class="game-card">
+            <img src="https://images8.alphacoders.com/992/992724.png" alt="Apex Legends">
+            <div class="game-overlay">
+                <h3 class="game-title">Apex Legends</h3>
+                <div class="players-count">
+                    <span>👥</span>
+                    <span>5,871 active players</span>
+                </div>
+            </div>
+            <button class="game-action">Join</button>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <h2 class="section-title">What Gamers Say</h2>
+    <p class="section-subtitle">Don't just take our word for it – hear from players who found their perfect team.</p>
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I was stuck in Silver rank for months. After finding a solid team through PlayPal, we ranked up to Diamond in just two weeks!</p>
+            <div class="testimonial-user">
+                <img src="https://img.freepik.com/free-vector/cute-astronaut-playing-vr-game-with-controller-cartoon-vector-icon-illustration-science-technology_138676-13977.jpg?ga=GA1.1.434619777.1744877113&semt=ais_hybrid&w=740" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h4>Alex K.</h4>
+                    <p>BGMI Player</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready to Find Your Dream Team?</h2>
-            <p class="cta-description">Join thousands of players who are already enjoying better matches and making new friends. Sign up takes less than a minute!</p>
-            <a href="#" class="cta-button-large">Create Your Account</a>
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">As a casual player, I struggled to find people who matched my play style. PlayPal connected me with an awesome squad who are now my regular gaming buddies.</p>
+            <div class="testimonial-user">
+                <img src="https://img.freepik.com/free-vector/cute-girl-gaming-holding-joystick-cartoon-icon-illustration-people-technology-icon-concept-isolated-flat-cartoon-style_138676-2169.jpg?t=st=1744877145~exp=1744880745~hmac=c1cbf2e37bd71aeecd410f51a63166e05166f6ca22802e798313d93aac111edd&w=1380" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah M.</h4>
+                    <p>Call of Duty Player</p>
+                </div>
+            </div>
         </div>
-    </section>
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">The skill matching is spot on! No more carrying teammates or getting carried. Every match feels balanced and competitive now.</p>
+            <div class="testimonial-user">
+                <img src="https://img.freepik.com/premium-photo/high-quality-gaming-character-mascot-vector_1004054-21470.jpg?ga=GA1.1.434619777.1744877113&semt=ais_hybrid&w=740" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h4>Raj P.</h4>
+                    <p>Free Fire Player</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-      
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2 class="cta-title">Ready to Find Your Dream Team?</h2>
+        <p class="cta-description">Join thousands of players who are already enjoying better matches and making new friends. Sign up takes less than a minute!</p>
+        <a href="#" class="cta-button-large">Create Your Account</a>
+    </div>
+</section>
+
+<!-- Footer -->
+  
 </body>
 </html>
 
-       </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-copyright">
-                &copy; 2025 PlayPal. All rights reserved. Made with ❤️ for <a href="#">Gamers</a>
-            </div>
-            <div class="footer-terms">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Cookies</a>
-            </div>
+   </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-copyright">
+            &copy; 2025 PlayPal. All rights reserved. Made with ❤️ for <a href="#">Gamers</a>
         </div>
-    </div> 
+        <div class="footer-terms">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+        </div>
+    </div>
+</div> 
 </body>
 </html>
